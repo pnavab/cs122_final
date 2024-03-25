@@ -12,4 +12,4 @@ The goal of this cli tool in Python is to streamline the process of opening new 
 This cli tool will deal with File IO as well as some Web Development concepts by using APIs. It will also require OS concepts to manage and pipe outputs from the API's and do error handling on those. This has to work on both Windows and Mac as well.
 
 # High Level Description
-The cli will allow users to add a complete path to a folder and save it under an alias. That way, they can run a command with the cli 'open' 
+The cli will allow users to add a complete path to a folder and save it under an alias. That way, they can run a command with the cli 'open' command and it'll run the VSCode command 'code .' to open that file in a new VSCode window. Another cli command to 'init' a repo will use the Github cli to create a remote repository with a specified name, then add and commit all current code in the current open directory. The user can specify if they want the repo to be public or private. There will be error handling for all command line arguments or responses from required APIs. 
