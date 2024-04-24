@@ -4,9 +4,14 @@ import subprocess
 from colorama import Fore, Back, Style, init
 import pi_json_helpers as helpers
 
+
 init()
 def color_text(text, color):
-  return f"{color}{text}{Style.RESET_ALL}"
+  return f'{color}{text}{Style.RESET_ALL}'
+
+add_color = color_text("'pi add <alias>'", Fore.CYAN)
+open_color = color_text("'pi open <alias>'", Fore.CYAN)
+rm_color = color_text("'pi rm <alias>'", Fore.CYAN)
 
 def main():
   if len(sys.argv) > 1:
@@ -42,9 +47,9 @@ def main():
 def help():
   print("="*80)
   print("Usage:")
-  print(f"   Run {color_text("'pi add <alias>'", Fore.CYAN)} to add a directory with a new alias")
-  print(f"   Run {color_text("'pi open <alias>'", Fore.CYAN)} to open a previously added directory. Append '-r' to open in the same VScode window")
-  print(f"   Run {color_text("'pi rm <alias>'", Fore.CYAN)} to remove an existing alias")
+  print(f"   Run {add_color} to add a directory with a new alias")
+  print(f"   Run {open_color} to open a previously added directory. Append '-r' to open in the same VScode window")
+  print(f"   Run {rm_color} to remove an existing alias")
   print("="*80)
 
 def list_all():
