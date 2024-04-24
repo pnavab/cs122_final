@@ -44,6 +44,7 @@ def help():
   print("Usage:")
   print(f"   Run {color_text("'122 add <alias>'", Fore.CYAN)} to add a directory with a new alias")
   print(f"   Run {color_text("'122 open <alias>'", Fore.CYAN)} to open a previously added directory. Append '-r' to open in the same VScode window")
+  print(f"   Run {color_text("'122 rm <alias>'", Fore.CYAN)} to remove an existing alias")
   print("="*80)
 
 def list_all():

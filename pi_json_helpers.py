@@ -1,7 +1,7 @@
 import json
 import os
 
-JSON_FILE = "C:/Users/pablo/ReactProjects/cs122_final/cli.json"
+JSON_FILE = "C:/Users/pablo/ReactProjects/cs122_final/pi.json"
 
 def get_directory_from_alias(alias):
   with open(JSON_FILE) as json_file:
