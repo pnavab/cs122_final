@@ -5,6 +5,7 @@ temp = temp.readline()
 env_directory = temp.split('\n')[0] + '/pi.json'
 
 JSON_FILE = env_directory
+print(JSON_FILE)
 
 def get_directory_from_alias(alias):
   with open(JSON_FILE) as json_file:

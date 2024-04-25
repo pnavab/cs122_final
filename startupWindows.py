@@ -26,3 +26,7 @@ try:
 
 finally:
     winreg.CloseKey(key)
+
+with open('.env', 'w') as f:
+    f.write(f'DIRECTORY={cwd}\n')
+    print(".env file created successfully.")
