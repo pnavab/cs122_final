@@ -30,3 +30,7 @@ finally:
 with open('.env', 'w') as f:
     f.write(f'DIRECTORY={cwd}\n')
     print(".env file created successfully.")
+
+with open('pi.json', 'w') as f:
+    f.write("{}")
+    print("pi.json file created successfully.")
