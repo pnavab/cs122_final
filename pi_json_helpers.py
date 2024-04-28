@@ -2,7 +2,7 @@ import json
 
 temp = open('.env', 'r')
 temp = temp.readline()
-env_directory = temp.split('\n')[0][10:] + '/pi.json'
+env_directory = temp.split('\n')[0][10:].strip() + '\pi.json'
 
 JSON_FILE = env_directory
 

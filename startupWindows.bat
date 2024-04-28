@@ -10,5 +10,5 @@ if errorlevel 1 (
   echo The current directory is already in the PATH.
 )
 
-echo DIRECTORY=%cd% >> .env
+echo DIRECTORY=%cd% > .env
 echo {} > pi.json
