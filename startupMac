@@ -1,9 +1,9 @@
 #!/bin/bash
 
 currDir=$(pwd)
-echo DIRECTORY=$currDir > .env
 
 echo "alias pi='python3 $currDir/pi.py'" >> ~/.zshrc
 source ~/.zshrc
 
+echo DIRECTORY=$currDir > .env
 echo '{}' > pi.json

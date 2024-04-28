@@ -1,10 +1,9 @@
 import json
+import os
 
-temp = open('.env', 'r')
-temp = temp.readline()
-env_directory = temp.split('\n')[0][10:].strip() + '\pi.json'
+curr_dir = os.path.dirname(os.path.abspath(__file__))
 
-JSON_FILE = env_directory
+JSON_FILE = curr_dir + '/pi.json'
 
 def get_directory_from_alias(alias):
   with open(JSON_FILE) as json_file:
@@ -46,3 +45,10 @@ def get_all():
       return "No aliases currently added!"
     formatted_data = "\n".join(f"{alias}: '{directory}'" for alias, directory in data.items())
   return formatted_data
+
+def get_github_token():
+  with open(f'{curr_dir}/.env', 'r') as file:
+    lines = file.readlines()
+    token = lines[1].split('=')[1].strip()
+    return token
+  

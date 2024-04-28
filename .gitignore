@@ -2,3 +2,4 @@ __pycache__/
 
 .env
 pi.json
+env.json
