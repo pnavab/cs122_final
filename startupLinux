@@ -1,5 +1,9 @@
 #!/bin/bash
 
 currDir=$(pwd)
-echo $currDir
 
+echo "alias pi='python3 $currDir/pi.py'" >> ~/.bashrc
+source ~/.bashrc
+
+echo DIRECTORY=$currDir > .env
+echo '{}' > pi.json
