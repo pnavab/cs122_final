@@ -2,6 +2,7 @@ import sys
 import os
 import subprocess
 import json
+import platform
 from colorama import Fore, Back, Style, init
 import webbrowser
 from prompt_toolkit import prompt
@@ -10,6 +11,8 @@ from prompt_toolkit.completion import PathCompleter
 import pi_json_helpers as helpers
 
 init()
+sys_os = platform.system()
+
 def color_text(text, color):
   return f'{color}{text}{Style.RESET_ALL}'
 
@@ -151,17 +154,20 @@ def git_create(repo_name):
     is_private = r"false"
   else:
     is_private = r"true"
+  command = [
+    'curl',
+    '-L',
+    '-X', 'POST',
+    '-H', 'Accept: application/vnd.github+json',
+    '-H', f'Authorization: Bearer {token}',
+    '-H', 'X-Github-Api-Version: 2022-11-28',
+    'https://api.github.com/user/repos',
+    '-d', f'{{"name": "{repo_name}", "homepage":"https://github.com", "private":{is_private},"is_template":false}}'
+  ]
+  if sys_os == "Windows":
+    command = ['wsl'] + command
   result = subprocess.Popen(
-    [
-      'wsl', 'curl',
-      '-L',
-      '-X', 'POST',
-      '-H', 'Accept: application/vnd.github+json',
-      '-H', f'Authorization: Bearer {token}',
-      '-H', 'X-Github-Api-Version: 2022-11-28',
-      'https://api.github.com/user/repos',
-      '-d', f'{{"name": "{repo_name}", "homepage":"https://github.com", "private":{is_private},"is_template":false}}'
-    ],
+    command,
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE,
     shell=True)
