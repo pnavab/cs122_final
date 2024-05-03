@@ -83,8 +83,8 @@ def help():
   print(f"   Run {get_cyan_text("'pi open <alias>'")} to open a previously added directory. Append '-r' to open in the same VScode window")
   print(f"   Run {get_cyan_text("'pi rm <alias>'")} to remove an existing alias")
   print(f"   Run {get_cyan_text("'pi ask'")} to toggle the search mode")
-  print(f"   Run {get_cyan_text("'zz init'")} to initialize .git and commit all current content to a remote Github repository")
-  print(f"   Run {get_cyan_text("'zz init <repo name>'")} to create a remote Github repository with the name and push all current content to it")
+  print(f"   Run {get_cyan_text("'pi init'")} to initialize .git and commit all current content to a remote Github repository")
+  print(f"   Run {get_cyan_text("'pi init <repo name>'")} to create a remote Github repository with the name and push all current content to it")
 
   print("="*80)
 
