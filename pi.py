@@ -205,7 +205,7 @@ def git_init(repo_name = None):
   github_link = f"https://github.com/pnavab/{repo_name}.git" if repo_name is not None else None
 
   try:
-    commit_message = "Initial commit from zz-cli"
+    commit_message = "Initial commit from pi cli"
     subprocess.run(["git", "init"], capture_output=True, text=True)
     subprocess.run(["git", "add", "."], capture_output=True, text=True)
     subprocess.run(["git", "commit", "-m", commit_message], capture_output=True, text=True)
