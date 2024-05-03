@@ -13,16 +13,15 @@ import pi_json_helpers as helpers
 init()
 sys_os = platform.system()
 
+# functions for coloring the text in help and error messages
 def color_text(text, color):
   return f'{color}{text}{Style.RESET_ALL}'
-
-# add_color = color_text("'pi add <alias>'", Fore.CYAN)
-# open_color = color_text("'pi open <alias>'", Fore.CYAN)
-# rm_color = color_text("'pi rm <alias>'", Fore.CYAN)
 
 def get_cyan_text(text):
     return color_text(text, Fore.CYAN)
 
+# Main switch case for handling the commands based on the user input in the command line.
+# Contains error handling in case of invalid commands or missing/excessive arguments, which will default to the help function
 def main():
     if len(sys.argv) > 1:
         match sys.argv[1]:
@@ -76,6 +75,7 @@ def main():
     else:
         help()
 
+# Help function that displays all usage of this CLI tool, called every time the user enters an invalid command or no command at all
 def help():
   print("="*80)
   print("Usage:")
@@ -88,10 +88,12 @@ def help():
 
   print("="*80)
 
+# Function to list all the aliases and their corresponding directories
 def list_all():
   print(color_text("-----------------LIST-----------------", Fore.CYAN))
   print(helpers.get_all())
 
+# Function to open the directory in VScode based on the alias provided
 def open(alias, reload=False):
   project = helpers.get_directory_from_alias(alias)
   if project is None:
@@ -107,6 +109,7 @@ def open(alias, reload=False):
   except Exception as e:
     print(f"Error: {e}")
 
+# Function to add a new alias and directory pair to the JSON file
 def add(alias):
   check_dir = helpers.get_directory_from_alias(alias)
   if check_dir is not None:
@@ -119,6 +122,7 @@ def add(alias):
   else:
     print(color_text("Error adding pair", Fore.RED))
 
+# Function to add the current directory to the JSON file
 def add_current_directory():
   directory = os.getcwd()
   alias = input("Enter the alias: ")
@@ -132,18 +136,22 @@ def add_current_directory():
   else:
     print(color_text("Error adding pair", Fore.RED))
 
-
+# Function to delete an alias from the JSON file
 def delete(alias):
   if helpers.remove_entry(alias):
     print(color_text(f"Alias '{alias}' removed successfully", Fore.GREEN))
   else:
     print(color_text("That alias was not found", Fore.RED))
 
+# Function to toggle the search mode, which will open a new tab in the default browser with the search query
 def search():
     query = input("Enter search query: ")
     search_url = f"https://www.google.com/search?q={query}"
     webbrowser.open_new_tab(search_url)
 
+# Function to create a remote repository on github.com with the name provided
+# If the repository is created successfully, it will initialize the current directory as a git repository and push all code to the remote repository
+# Will conditionally append the 'wsl' command to the command list if the OS is Windows to run a proper curl command
 def git_create(repo_name):
   """
   Function to create the remote repository on github.com named by the parameter
@@ -181,6 +189,7 @@ def git_create(repo_name):
       print(f"Repository {repo_name} created successfully")
       return True
     
+# Function to initialize a git repository in the current directory if it does not already exist
 def git_init(repo_name = None):
   """
   Function to initialize a git repo in the current directory if it does not already exist
@@ -208,5 +217,6 @@ def git_init(repo_name = None):
   except Exception as e:
     print("Error initializing git repository")
 
+# Entry point for the script
 if __name__ == "__main__":
   main()

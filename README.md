@@ -14,8 +14,16 @@ This cli tool will deal with File IO as well as some Web Development concepts by
 # High Level Description
 The cli will allow users to add a complete path to a folder and save it under an alias. That way, they can run a command with the cli 'open' command and it'll run the VSCode command 'code .' to open that file in a new VSCode window. Another cli command to 'init' a repo will use the Github cli to create a remote repository with a specified name, then add and commit all current code in the current open directory. The user can specify if they want the repo to be public or private. There will be error handling for all command line arguments or responses from required APIs. 
 
-
-### Mac/Linux
+# How to Run
+### Setup
+Make sure you are running Python 3.12! If you are on Windows, make sure you have WSL enabled.
 1. cd into directory
-2. Run Start Up Script
-3. Enjoy :> 
+2. Run the corresponding startup script for your OS
+3. Open a new terminal and run `pi` to view the initial help message  
+
+### Github integration
+1. Get your Github token from github.com
+2. Add it to the .env file in line 2 in the format `TOKEN=<token>`
+
+# Working program
+![alt text](./images/image.png)  
