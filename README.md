@@ -26,4 +26,16 @@ Make sure you are running Python 3.12! If you are on Windows, make sure you have
 2. Add it to the .env file in line 2 in the format `TOKEN=<token>`
 
 # Working program
-![alt text](./images/image.png)  
+### Help message with all functionality  
+![alt text](./images/image.png)    
+
+### Listing all saved alias to directory mappings  
+![image](https://github.com/pnavab/cs122_final/assets/114110926/8fbe06fb-9ac1-49e7-b369-3573127c3a3d)  
+
+### Browser search from terminal  
+![image](https://github.com/pnavab/cs122_final/assets/114110926/095a6a27-45a7-403a-90e9-33499256e864)  
+
+### Creating Git repositories, initializing git in local project and pushing all content to new repo
+![image](https://github.com/pnavab/cs122_final/assets/114110926/bcf2c192-858c-4ee6-8aa7-3a93d9d10c33)  
+
+
